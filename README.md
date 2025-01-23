@@ -9,7 +9,7 @@ A shell script to run [Audio Share](https://github.com/mkckr0/audio-share) effor
 ## How to run
 1. Inside the terminal, run
 ```bash
-curl -Os https://raw.githubusercontent.com/sihawido/assettocorsa-linux-setup/main/assettocorsa-linux-setup.sh && bash assettocorsa-linux-setup.sh
+curl -Os https://raw.githubusercontent.com/sihawido/audio-share-linux-setup/main/audio-share-linux-setup.sh && bash audio-share-linux-setup.sh
 ```
 2. Go through every step in the terminal.
 3. Done!
