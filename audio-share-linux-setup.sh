@@ -35,14 +35,10 @@ function CheckInstall {
 }
 
 function InstallAudioShare {
-  if [[ -f "$HOME/.local/bin/as-cmd" ]]; then
-    echo "Removing existing installation of Audio Share..."
-    rm "$HOME/.local/bin/as-cmd"
-  fi
   echo "Installing $audioshare..." &&
   wget -q "https://github.com/mkckr0/audio-share/releases/download/v$as_version/audio-share-server-cmd-linux.tar.gz" -P "temp/" &&
   tar -xzf "temp/audio-share-server-cmd-linux.tar.gz" -C "temp/" &&
-  cp "temp/audio-share-server-cmd/bin/as-cmd" "$HOME/.local/bin/" &&
+  cp -f "temp/audio-share-server-cmd/bin/as-cmd" "$HOME/.local/bin/" &&
   rm -rf "temp/" &&
   chmod +x "$HOME/.local/bin/as-cmd" &&
   return
@@ -59,12 +55,14 @@ function CheckShortcut {
 }
 
 function CreateShortcut {
-  wget -q "https://raw.githubusercontent.com/sihawido/audio-share-linux-setup/main/Audio Share.desktop" -P "temp/" &&
-  sed "s|<HOME>|$HOME|g" -i "temp/Audio Share.desktop" &&
+  wget -q "https://raw.githubusercontent.com/sihawido/audio-share-linux-setup/main/audio-share-icon.svg" -P "temp/" &&
+  cp -f "audio-share-icon.svg" "$HOME/.local/bin/" &&
   wget -q "https://raw.githubusercontent.com/sihawido/audio-share-linux-setup/main/start-audio-share" -P "temp/" &&
   chmod +x "temp/start-audio-share" &&
-  cp -f "temp/Audio Share.desktop" "$HOME/.local/share/applications/" &&
   cp -f "temp/start-audio-share" "$HOME/.local/bin/" &&
+  wget -q "https://raw.githubusercontent.com/sihawido/audio-share-linux-setup/main/Audio Share.desktop" -P "temp/" &&
+  sed "s|<HOME>|$HOME|g" -i "temp/Audio Share.desktop" &&
+  cp -f "temp/Audio Share.desktop" "$HOME/.local/share/applications/" &&
   rm -rf "temp/" &&
   
   ip="$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')" && # Getting local IP
