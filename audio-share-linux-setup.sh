@@ -56,7 +56,7 @@ function CheckShortcut {
 
 function CreateShortcut {
   wget -q "https://raw.githubusercontent.com/sihawido/audio-share-linux-setup/main/audio-share-icon.svg" -P "temp/" &&
-  cp -f "audio-share-icon.svg" "$HOME/.local/bin/" &&
+  cp -f "temp/audio-share-icon.svg" "$HOME/.local/bin/" &&
   wget -q "https://raw.githubusercontent.com/sihawido/audio-share-linux-setup/main/start-audio-share" -P "temp/" &&
   chmod +x "temp/start-audio-share" &&
   cp -f "temp/start-audio-share" "$HOME/.local/bin/" &&
@@ -104,7 +104,7 @@ function Ask {
   done
 }
 
-#CheckTempDir
+CheckTempDir
 CheckInstall
 if [[ ! -f "$HOME/.local/bin/as-cmd" ]]; then
   echo "Audio Share is not installed."
