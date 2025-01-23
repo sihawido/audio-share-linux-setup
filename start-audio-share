@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+ip="$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')" # Getting local IP
+ip="$ip:48610" # Whatever port you prefer
+endpoint="$(wpctl status -k | sed -e '1,/├─ Sinks:/d' | sed -n '/├─ Sources:/q;p' | grep \* | sed 's| ||g' | sed 's/\[.*//g' | sed 's/.*\.//g')" # Default audio output (pipewire)
+endpoints=($(as-cmd -l | sed 's|\*||' | grep $endpoint)) # removes '*' from output
+endpoint="${endpoints[1]}" # Get endpoint id
+command="as-cmd --bind=$ip --endpoint $endpoint $@"
+echo "Sound output ID: $(tput bold)$endpoint$(tput sgr0)
+IP: $(tput bold)$ip$(tput sgr0)
+Launching..."; echo
+$command

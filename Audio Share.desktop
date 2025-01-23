@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name = Audio Share
+Icon = <HOME>/.local/bin/audio-share-icon.svg
+Type = Application
+Exec = <HOME>/.local/bin/start-audio-share
+Terminal = false
+Keywords = audio share sound connect
