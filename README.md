@@ -1,10 +1,13 @@
 # Audio Share Linux Setup
-A shell script to run [Audio Share](https://github.com/mkckr0/audio-share) effortlessly.
+A shell script to run [Audio Share](https://github.com/mkckr0/audio-share) effortlessly.  
+<img src="audio-share-icon.svg" width="128">
 
 ## What it does
 - Installs Audio Share to `~/.local/bin/`
-- Creates a .desktop shortcut
-- Sets Audio Share to start on start-up
+- Puts a `start-audio-share` shell script in `~/.local/bin/` to use the default audio output
+- Creates a .desktop shortcut which executes `start-audio-share`
+- Puts an Audio Share icon in `~/.local/bin/` for the .desktop shortcut
+- Creates a symlink to the .desktop shortcut in `~/.config/autostart/`
 
 ## How to run
 1. Inside the terminal, run
