@@ -19,5 +19,5 @@ curl -Os https://raw.githubusercontent.com/sihawido/audio-share-linux-setup/main
 3. Done!
 
 ## Notes
-- To launch the Audio Share from the terminal you can run `as-cmd` (original) or `start-audio-share` (shell script) which is what the .desktop shortcut launches. `start-audio-share` automatically detects the default Pipewire sink and asks `as-cmd` to use it.
+- To launch the Audio Share server from the terminal, you can run `as-cmd` (original) or `start-audio-share` (shell script) which is what the .desktop shortcut launches. `start-audio-share` automatically detects the default Pipewire sink and asks `as-cmd` to use it.
 - You can modify the specified IP or port by editing `~/.local/bin/start-audio-share`.
