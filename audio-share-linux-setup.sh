@@ -4,7 +4,7 @@ if [[ $USER == "root" ]]; then
 fi
 
 # Useful variables
-as_version="0.3.2"; audioshare="Audio Share (v$as_version)"
+as_version="0.3.4"; audioshare="Audio Share (v$as_version)"
 #"https://github.com/mkckr0/audio-share/releases/download/v$as_version/audio-share-server-cmd-linux.tar.gz"
 ## Defining text styles for readablity
 bold=$(tput bold); normal=$(tput sgr0)
